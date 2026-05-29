@@ -14,7 +14,7 @@
       overflow-x: hidden;
     }
 
-    /* ========== MERGED & ENHANCED HEADER / NAVIGATION ========== */
+    /*NAVIGATION BAR */
     .header {
       position: fixed;
       top: 0;
@@ -128,7 +128,7 @@
       line-height: 1.7;
     }
 
-    /* Button box (merged styles + extra polish) */
+    /* Button box */
     .btn-box {
       width: 345px;
       display: flex;
@@ -197,7 +197,7 @@
       box-shadow: 0 8px 20px rgba(0, 171, 240, 0.3);
     }
 
-    /* Social Icons (merged from both styles) */
+    /* Social Icons  */
     .home-sci {
       display: flex;
       gap: 1.2rem;
@@ -247,7 +247,7 @@
       width: 100%;
     }
 
-    /* ========== RIGHT SIDE: PERFECT CIRCLE PHOTO (merged & enhanced) ========== */
+    /*RIGHT SIDE: PERFECT CIRCLE PHOTO */
     .photo-wrapper {
       flex: 0.9;
       display: flex;
@@ -492,6 +492,37 @@
             0%, 100% { border-color: #00abf0; }
             50% { border-color: transparent; }
         }
+          @media (max-width: 768px) {
+            .about {
+                flex-direction: column; /* Stack vertically */
+                text-align: center;
+                padding: 2rem 1rem;
+            }
+            
+            .about-img {
+                order: 1; /* Image on top */
+            }
+            
+            .about-img img {
+                max-width: 220px; /* Smaller on mobile */
+            }
+            
+            .about-content {
+                order: 2; /* Text below image */
+            }
+            
+            .about-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .about-content h3 {
+                font-size: 1.1rem;
+            }
+            
+            .about-content p {
+                font-size: 0.9rem;
+            }
+        }
          .typewriter-wrapper {
                 font-size: 1.3rem;
          }
@@ -706,7 +737,7 @@
             width: 100%;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* CHANGED: 2 columns instead of 3 */
+            grid-template-columns: repeat(2, 1fr); 
             gap: 2rem;
             justify-items: center; /* CENTERS items horizontally */
             align-items: center;
@@ -882,7 +913,7 @@
             color: #00abf0;
         }
 
-        /* Form layout - MORE COMPACT */
+        /* Form layout  */
         .input-box {
             display: flex;
             gap: 0.8rem;  
@@ -999,7 +1030,7 @@
         }
 
         /*CONTACT SOCIAL ICONS*/
-        /* Social Icons (merged from both styles) */
+        /* Social Icons */
         .footer1{
           background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
           padding: 2rem;
