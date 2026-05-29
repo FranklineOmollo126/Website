@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Frankline Omollo | Full Stack Developer</title>
+  <!-- Google Fonts: Poppins + Inter for extra aesthetic -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) for socials and better icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- Fixed Navigation Header (merged both designs) -->
+  <div class="header">
+    <a href="#" class="logo">Frank.</a>
+    <div class="navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About </a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="home" id="home">
+    <!-- Left content area (text + buttons + socials) -->
+    <div class="home-content">
+      <br>
+      <br>
+      <br>
+      <h1>Hi, I'm <span class="highlight">Frankline Omollo</span></h1>
+      <h3>Full Stack Developer</h3>
+      <p>
+        I am an IT student passionate about building software and solving real-world problems using Java and Python. I
+        develop modern web applications and scalable backend systems, focusing on clean, efficient, and maintainable
+        code.
+      </p>
+
+      <!-- Button group (Hire me & Let's Talk) -->
+      <div class="btn-box">
+        <a href="#" id="hireBtn">📄 Hire me</a>
+        <a href="#" id="talkBtn">💬 Let's Talk</a>
+      </div>
+
+      <!-- Social Icons (enhanced with FontAwesome) -->
+      <div class="home-sci">
+        <a href="https://www.facebook.com/profile.php?id=61554522751746" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://x.com/frankline2142" target="_blank" aria-label="Twitter/X"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/FranklineOmollo126" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: CIRCLED PHOTO (exactly where your image belongs) -->
+    <div class="photo-wrapper">
+      <div class="circle-photo">
+
+        <!-- PHOTO SECTION -->
+        <img src="frank2.png" alt="Frankline Omollo - Full Stack Developer">
+      </div>
+    </div>
+  </section>
+
+  <!--ABOUT SECTION-->
+  <section class="about" id="about">
+    <div class="about-content">
+      <h1 class="heading2"><span>About</span> Me</h1>
+      <!--<h3>I'm a <span>Full Stack Developer</span></h3>-->
+      <!-- TYPWRITER EFFECT HERE -->
+      <div class="typewriter-wrapper">
+        <span class="static-text">I am a </span>
+        <span class="dynamic-text" id="typing-word"></span>
+      </div>
+      <!--<p>I'm an IT student passionate about building software applications using java and python</p>-->
+      <p>I'm Frankline Omollo, a dedicated IT student with a passion for software development. I specialize in Java and
+        Python, building everything from desktop applications to complex web systems.</p>
+
+    
+      <button class="about-btn" >Download CV →</button>
+    </div>
+    <div class="about-img">
+      <img src="omollo.png" alt="About Image">
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES SECTION -->
+
+  <section class="services" id="services">
+    <div class="services-container">
+      <div class="section-heading">
+        <br>
+        <br>
+        <br>
+        <h2>My <span>Services</span></h2>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 - Web Development -->
+        <div class="service-card">
+          <div class="service-icon">
+            <div class="emoji">💻</div>
+          </div>
+          <h3>Web Development</h3>
+          <p>
+          <p>I create responsive, fast-loading websites using modern technologies like Python. From
+            business websites to complex web applications, I deliver clean code and user-friendly experiences.</p>
+          </p>
+          <button class="service-btn" onclick="alert('Web Development services coming soon!')">Read More →</button>
+        </div>
+
+        <!-- Service 2 - UX/UI Design -->
+        <div class="service-card">
+          <div class="service-icon">
+            <div class="emoji">🎨</div>
+
+          </div>
+          <h3>UX/UI Design</h3>
+
+          <p>I create user-centered designs that are both beautiful and functional. Using Figma and Adobe XD, I design
+            wireframes, prototypes, and interfaces that keep users engaged and coming back for more.</p>
+          </p>
+          <button class="service-btn" onclick="alert('UX/UI Design services coming soon!')">Read More →</button>
+        </div>
+
+        <!-- Service 3 - AI/ML Development -->
+        <div class="service-card">
+          <div class="service-icon">
+            <div class="emoji">🤖</div>
+          </div>
+          <h3>AI/ML Development</h3>
+          <p>
+          <p>I build machine learning models using Python and TensorFlow to solve real-world problems. From data
+            prediction to automation and intelligent systems, I turn complex data into actionable insights for your
+            business.</p>
+          </p>
+          <button class="service-btn" onclick="alert('AI/ML Development services coming soon!')">Read More →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--Portfolio section-->
+  <section class="portfolio" id="portfolio">
+    <h2 class="heading3">Latest <span>Project</span></h2>
+    <div class="portfolio-container">
+      <div class="portfolio-box">
+        <img src="bankaccount.jpg" alt="portfolioimage">
+        <div class="portfolio-layer">
+          <h4>Bank Account System</h4>
+          <p>>A secure banking application that allows users to create accounts, deposit/withdraw funds, check balances,
+            and view transaction history. Built with Python and MySQL.</p>
+          <a href="#"><i class='bx bx-link-external'></i>Go→</a>
+
+        </div>
+      </div>
+      <div class="portfolio-box">
+        <img src="gradingsystem.jpg" alt="portfolioimage">
+        <div class="portfolio-layer">
+          <h4>Student Grading System</h4>
+          <p>A comprehensive grading management system for schools. Features include student registration, subject
+            enrollment, grade calculation, GPA analysis, and report generation.</p>
+          <a href="#"><i class='bx bx-link-external'></i>Go→</a>
+
+        </div>
+      </div>
+      <div class="portfolio-box">
+        <img src="gradingsystem1.png" alt="portfolioimage">
+        <div class="portfolio-layer">
+          <h4>Advanced Grading Portal</h4>
+          <p>An enhanced grading system with real-time analytics, teacher dashboards, parent portals, automated report
+            cards, and performance tracking across multiple semesters.</p>
+          <a href="#"><i class='bx bx-link-external'></i>Go→</a>
+
+        </div>
+      </div>
+      <div class="portfolio-box">
+        <img src="web.jpg" alt="portfolioimage">
+        <div class="portfolio-layer">
+          <h4>Modern Web Design</h4>
+          <p>Responsive and modern website designs with smooth animations, mobile-first approach, and SEO optimization.
+            Built with HTML5, CSS3, and JavaScript.</p>
+          </p>
+          <a href="#"><i class='bx bx-link-external'></i>Go→</a>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+
+  <!--CONTACT SECTION CODE-->
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <section class="contact" id="contact">
+    <h2 class="heading"><span>Contact </span>Me</h2>
+
+    <form id="smsForm">
+      <!-- Row 1: Full Name + Email -->
+      <div class="input-box">
+        <input type="text" id="fullName" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email address" required>
+      </div>
+
+      <!-- Row 2: Phone Number (optional) -->
+      <div class="input-box">
+        <input type="tel" id="phoneNumber" placeholder="Your Phone Number (optional)">
+      </div>
+
+      <!-- Row 3: Subject - SINGLE FIELD -->
+      <div class="single-input">
+        <input type="text" id="emailSubject" placeholder="Subject" required>
+      </div>
+
+      <!-- Message - TEXTAREA -->
+      <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+
+      <!-- Send Message Button -->
+      <button type="submit" class="btn">📧 Send Message →</button>
+    </form>
+
+    <div id="statusMessage" class="status-message"></div>
+
+    <div class="note">
+      📱 Message will be sent as SMS to +254769230897
+      <p> Messages will be sent directly to Frankline Omollo</p>
+    </div>
+  </section>
+
+  <script>
+    const YOUR_PHONE_NUMBER = "+254769230897";
+    const smsForm = document.getElementById('smsForm');
+    const statusMessage = document.getElementById('statusMessage');
+
+    smsForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phoneNumber = document.getElementById('phoneNumber').value.trim();
+      const subject = document.getElementById('emailSubject').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!fullName || !email || !subject || !message) {
+        showStatus('Please fill in all required fields', 'error');
+        return;
+      }
+
+      const smsMessage = `New message from ${fullName}%0A%0A` +
+        `Email: ${email}%0A` +
+        `Subject: ${subject}%0A%0A` +
+        `Message: ${message}%0A%0A` +
+        `From: ${phoneNumber || 'Not provided'}`;
+
+      const smsUrl = `sms:${YOUR_PHONE_NUMBER}?body=${smsMessage}`;
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        window.location.href = smsUrl;
+        showStatus('Opening SMS app... Send the message!', 'success');
+        setTimeout(() => {
+          if (confirm('Message opened in SMS app. Did you send it?')) {
+            smsForm.reset();
+          }
+        }, 2000);
+      } else {
+        showStatus('📱 Copy the message below and send from your phone', 'success');
+        const copyDiv = document.createElement('div');
+        copyDiv.style.marginTop = '0.8rem';
+        copyDiv.style.padding = '0.8rem';
+        copyDiv.style.background = 'rgba(255,255,255,0.1)';
+        copyDiv.style.borderRadius = '6px';
+        copyDiv.style.border = '1px solid #00abf0';
+        copyDiv.innerHTML = `<strong style="color:#00abf0;">Copy this message:</strong><br>
+                                <textarea id="copyText" rows="4" style="width:100%; margin-top:0.5rem; background:#1a1a2e; color:white; border:1px solid #00abf0; border-radius:6px; padding:0.5rem; font-size:0.8rem;">${decodeURIComponent(smsMessage.replace(/%0A/g, '\n'))}</textarea>
+                                <button id="copyBtn" style="margin-top:0.5rem; padding:0.4rem 0.8rem; background:#00abf0; color:white; border:none; border-radius:5px; cursor:pointer;">📋 Copy</button>`;
+        const oldCopy = document.querySelector('.copy-container');
+        if (oldCopy) oldCopy.remove();
+        copyDiv.className = 'copy-container';
+        statusMessage.parentNode.insertBefore(copyDiv, statusMessage.nextSibling);
+        document.getElementById('copyBtn').addEventListener('click', function () {
+          const copyText = document.getElementById('copyText');
+          copyText.select();
+          document.execCommand('copy');
+          alert('Copied! Send from your phone.');
+        });
+      }
+    });
+
+    function showStatus(message, type) {
+      statusMessage.textContent = message;
+      statusMessage.className = `status-message ${type}`;
+      setTimeout(() => {
+        statusMessage.style.display = 'none';
+        statusMessage.className = 'status-message';
+      }, 5000);
+    }
+  </script>
+  <br>
+
+
+  <!--Footer Section-->
+  <footer class="footer1">
+    <div class="social">
+      <div class="home-sci1">
+        <a href="https://www.facebook.com/profile.php?id=61554522751746" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://x.com/frankline2142" target="_blank" aria-label="Twitter/X"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/FranklineOmollo126" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+
+      </div>
+      <p class="copyright">
+        &copy;Frankine Nduri. All Rights Reserved
+      </p>
+
+    </div>
+
+  </footer>
+
+
+
+  <script>
+    // Simple interactive feedback for buttons (smooth alerts)
+    const hireBtn = document.getElementById('hireBtn');
+    const talkBtn = document.getElementById('talkBtn');
+
+    if (hireBtn) {
+      hireBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("✨ Thanks for your interest! Feel free to reach out via the contact section. Let's build something great.");
+      });
+    }
+    if (talkBtn) {
+      talkBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert("💬 Let's talk! You can connect with me on socials or send an email to franklinenduri@gmail.com");
+      });
+    }
+
+    // Optional: active nav highlight on click (simple)
+    const navLinks = document.querySelectorAll('.navbar a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        if (this.getAttribute('href') === '#') {
+          e.preventDefault();
+        }
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+  <script>
+    // TYPEWRITER EFFECT - Words to cycle through
+    const words = ["Full Stack Developer", "Web Designer", "Python Developer", "Java Programmer"];
+
+    let wordIndex = 0;      // Which word we're on
+    let charIndex = 0;      // Which character we're at
+    let isDeleting = false;  // Are we deleting or typing?
+    let typingSpeed = 150;   // Speed of typing
+
+    const dynamicTextElement = document.getElementById("typing-word");
+
+    function typeEffect() {
+      const currentWord = words[wordIndex];
+
+      // TYPING: adding characters
+      if (!isDeleting && charIndex <= currentWord.length) {
+        dynamicTextElement.textContent = currentWord.substring(0, charIndex);
+        charIndex++;
+        typingSpeed = 150;
+      }
+      // BACKSPACING: removing characters
+      else if (isDeleting && charIndex >= 0) {
+        dynamicTextElement.textContent = currentWord.substring(0, charIndex);
+        charIndex--;
+        typingSpeed = 100;
+      }
+
+      // Word fully typed → pause then delete
+      if (!isDeleting && charIndex === currentWord.length + 1) {
+        isDeleting = true;
+        typingSpeed = 1500;  // Pause 1.5 seconds before deleting
+      }
+      // Word fully deleted → move to next word
+      else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;  // Loop through words
+        typingSpeed = 500;  // Pause before typing next word
+      }
+
+      setTimeout(typeEffect, typingSpeed);
+    }
+
+    // Start the animation when page loads
+    typeEffect();
+  </script>
+</body>
+
+</html>
