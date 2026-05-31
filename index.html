@@ -9,7 +9,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <!-- Font Awesome 6 (free icons) for socials and better icons -->
+  <!-- Font Awesome 6 for socials-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 
@@ -17,7 +17,7 @@
 
 <body>
 
-  <!-- Fixed Navigation Header (merged both designs) -->
+  <!-- Fixed Navigation Header -->
   <div class="header">
     <a href="#" class="logo">Frank.</a>
     <button class="menu-icon" id="menuIcon">☰</button>
@@ -53,7 +53,7 @@
         <a href="#" id="talkBtn">💬 Let's Talk</a>
       </div>
 
-      <!-- Social Icons (enhanced with FontAwesome) -->
+      <!-- Social Icons-->
       <div class="home-sci">
         <a href="https://www.facebook.com/profile.php?id=61554522751746" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="https://x.com/frankline2142" target="_blank" aria-label="Twitter/X"><i class="fab fa-twitter"></i></a>
@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <!-- RIGHT SIDE: CIRCLED PHOTO (exactly where your image belongs) -->
+    <!-- CIRCLED PHOTO -->
     <div class="photo-wrapper">
       <div class="circle-photo">
 
@@ -81,17 +81,17 @@
     <div class="about-content">
       <h1 class="heading2"><span>About</span> Me</h1>
       
-      <!-- TYPWRITER EFFECT HERE -->
+      <!-- TYPWRITER EFFECT-->
       <div class="typewriter-wrapper">
         <span class="static-text">I am a </span>
         <span class="dynamic-text" id="typing-word"></span>
       </div>
-      <!--<p>I'm an IT student passionate about building software applications using java and python</p>-->
+      
       <p>I'm Frankline Omollo, a dedicated IT student with a passion for software development. I specialize in Java and
         Python, building everything from desktop applications to complex web systems.</p>
 
     
-      <button class="about-btn" >Download CV →</button>
+      <button class="about-btn" onclick="alert('Not Available at the moment!')">Download CV →</button>
     </div>
     <div class="about-img">
       <img src="omollo.png" alt="About Image">
@@ -253,7 +253,7 @@
   </section>
    <script>
     
-    // CLEAN JAVASCRIPT//
+    // JAVASCRIPT//
     
     // Get elements
     const menuIcon = document.getElementById('menuIcon');
@@ -427,12 +427,12 @@
         typingSpeed = 100;
       }
 
-      // Word fully typed → pause then delete
+      // Word fully typed -> pause then delete
       if (!isDeleting && charIndex === currentWord.length + 1) {
         isDeleting = true;
         typingSpeed = 1500;  // Pause 1.5 seconds before deleting
       }
-      // Word fully deleted → move to next word
+      // Word fully deleted -> move to next word
       else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         wordIndex = (wordIndex + 1) % words.length;  // Loop through words
