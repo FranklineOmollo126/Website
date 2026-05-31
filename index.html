@@ -20,7 +20,8 @@
   <!-- Fixed Navigation Header (merged both designs) -->
   <div class="header">
     <a href="#" class="logo">Frank.</a>
-    <div class="navbar">
+    <button class="menu-icon" id="menuIcon">☰</button>
+    <div class="navbar" id="navbar">
       <a href="#home" class="active">Home</a>
       <a href="#about">About </a>
       <a href="#services">Services</a>
@@ -250,6 +251,32 @@
       <p> Messages will be sent directly to Frankline Omollo</p>
     </div>
   </section>
+   <script>
+    
+    // CLEAN JAVASCRIPT//
+    
+    // Get elements
+    const menuIcon = document.getElementById('menuIcon');
+    const navbar = document.getElementById('navbar');
+    
+    // Check if elements exist (prevents errors)
+    if (menuIcon && navbar) {
+        // Toggle menu when hamburger clicked
+        menuIcon.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+        
+        // Get all nav links (declared ONCE here)
+        const navLinks = document.querySelectorAll('.navbar a');
+        
+        // Close menu when any link is clicked
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+            });
+        });
+    }
+</script>
 
   <script>
     const YOUR_PHONE_NUMBER = "+254769230897";
