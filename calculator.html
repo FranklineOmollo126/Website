@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<!-- Tells browser this is HTML5 document -->
+<html lang="en">
+<!-- Root element, lang="en" sets language to English -->
+
+<head>
+    <!-- Head contains meta information (not visible on page) -->
+    
+    <meta charset="UTF-8">
+    <!-- Allows special characters like +, -, ×, ÷ -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes calculator responsive on mobile phones -->
+    
+    <title>Calculator App - Frankline</title>
+    <!-- Text that appears on browser tab -->
+    
+    <style>
+        /* ============================================ */
+        /* ALL CSS STYLES GO HERE                      */
+        /* ============================================ */
+        
+        /* Resets default margins/padding for ALL elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* box-sizing: border-box makes padding not add to width */
+        }
+        
+        /* Body styles - applies to entire page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Clean, modern font */
+            
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            /* Your dark blue gradient background */
+            
+            min-height: 100vh;
+            /* Minimum height = full viewport height */
+            
+            display: flex;
+            /* Enables flexbox layout */
+            
+            justify-content: center;
+            /* Centers horizontally */
+            
+            align-items: center;
+            /* Centers vertically */
+            
+            padding: 1rem;
+            /* Space around edges on mobile */
+        }
+        
+        /* Calculator container - the white/gray box */
+        .calculator {
+            background: rgba(255, 255, 255, 0.1);
+            /* Semi-transparent white */
+            
+            backdrop-filter: blur(10px);
+            /* Frosted glass effect */
+            
+            border-radius: 20px;
+            /* Rounded corners */
+            
+            padding: 1.5rem;
+            /* Space inside the box */
+            
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            /* Shadow for depth */
+            
+            border: 1px solid rgba(230, 126, 34, 0.3);
+            /* Thin orange border */
+            
+            width: 100%;
+            /* Full width on mobile */
+            
+            max-width: 400px;
+            /* But not wider than 400px on desktop */
+        }
+        
+        /* Display screen - where numbers appear */
+        .display {
+            background: rgba(0, 0, 0, 0.3);
+            /* Dark background for contrast */
+            
+            border-radius: 15px;
+            /* Rounded corners */
+            
+            padding: 1rem;
+            /* Space inside */
+            
+            margin-bottom: 1.5rem;
+            /* Space below display */
+            
+            text-align: right;
+            /* Numbers align to right */
+            
+            word-wrap: break-word;
+            /* Prevents overflow */
+            
+            word-break: break-all;
+            /* Breaks long numbers */
+        }
+        
+        /* The actual number text */
+        .display input {
+            width: 100%;
+            /* Full width */
+            
+            background: transparent;
+            /* No background */
+            
+            border: none;
+            /* No border */
+            
+            color: #ffffff;
+            /* White text */
+            
+            font-size: 2.5rem;
+            /* Large text */
+            
+            text-align: right;
+            /* Align to right */
+            
+            font-weight: bold;
+            /* Bold numbers */
+            
+            outline: none;
+            /* Removes blue outline when clicked */
+        }
+        
+        /* Small text for showing calculation (optional) */
+        .display .expression {
+            color: #e67e22;
+            /* Orange color */
+            
+            font-size: 0.9rem;
+            /* Smaller text */
+            
+            margin-bottom: 0.5rem;
+            /* Space below */
+            
+            min-height: 1.5rem;
+            /* Reserve space even when empty */
+        }
+        
+        /* Button grid - arranges buttons in rows/columns */
+        .buttons {
+            display: grid;
+            /* Enables grid layout */
+            
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 equal columns */
+            
+            gap: 0.75rem;
+            /* Space between buttons */
+        }
+        
+        /* All buttons share these styles */
+        button {
+            padding: 1.2rem 0.5rem;
+            /* Vertical and horizontal padding */
+            
+            font-size: 1.3rem;
+            /* Text size */
+            
+            font-weight: bold;
+            /* Bold text */
+            
+            border: none;
+            /* No border */
+            
+            border-radius: 12px;
+            /* Rounded corners */
+            
+            cursor: pointer;
+            /* Changes mouse to hand icon */
+            
+            transition: all 0.2s ease;
+            /* Smooth hover effect */
+            
+            background: rgba(255, 255, 255, 0.15);
+            /* Semi-transparent background */
+            
+            color: #ffffff;
+            /* White text */
+        }
+        
+        /* Hover effect - when mouse over button */
+        button:hover {
+            background: rgba(230, 126, 34, 0.5);
+            /* Orange highlight */
+            
+            transform: scale(1.02);
+            /* Slightly larger */
+        }
+        
+        /* Active effect - when clicking */
+        button:active {
+            transform: scale(0.98);
+            /* Slightly smaller when pressed */
+        }
+        
+        /* Special button - operator buttons (+, -, ×, ÷) */
+        .operator {
+            background: rgba(230, 126, 34, 0.7);
+            /* Orange background */
+            
+            color: #ffffff;
+        }
+        
+        /* Special button - equals button */
+        .equals {
+            background: #e67e22;
+            /* Solid orange */
+            
+            color: #ffffff;
+            
+            grid-column: span 2;
+            /* Takes up 2 columns instead of 1 */
+        }
+        
+        /* Special button - clear and delete */
+        .special {
+            background: rgba(192, 57, 43, 0.7);
+            /* Reddish background */
+            
+            color: #ffffff;
+        }
+        
+        /* Mobile responsiveness - smaller buttons on phones */
+        @media (max-width: 480px) {
+            .calculator {
+                padding: 1rem;
+                /* Less padding */
+            }
+            
+            button {
+                padding: 0.8rem 0.3rem;
+                /* Smaller buttons */
+                
+                font-size: 1rem;
+                /* Smaller text */
+            }
+            
+            .display input {
+                font-size: 1.8rem;
+                /* Smaller display text */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================ -->
+    <!-- ALL HTML CONTENT GOES HERE                   -->
+    <!-- ============================================ -->
+    
+    <div class="calculator">
+        <!-- Display Section -->
+        <div class="display">
+            <div class="expression" id="expression"></div>
+            <!-- Shows: "5 + 3" while typing -->
+            
+            <input type="text" id="display" value="0" readonly>
+            <!-- Shows current number - readonly means user can't type -->
+        </div>
+        
+        <!-- Buttons Section -->
+        <div class="buttons">
+            <!-- Row 1: Clear, Delete, Percentage, Divide -->
+            <button class="special" onclick="clearDisplay()">C</button>
+            <button class="special" onclick="deleteLast()">⌫</button>
+            <button onclick="appendNumber('%')">%</button>
+            <button class="operator" onclick="setOperator('÷')">÷</button>
+            
+            <!-- Row 2: 7, 8, 9, Multiply -->
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button class="operator" onclick="setOperator('×')">×</button>
+            
+            <!-- Row 3: 4, 5, 6, Subtract -->
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button class="operator" onclick="setOperator('-')">-</button>
+            
+            <!-- Row 4: 1, 2, 3, Add -->
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button class="operator" onclick="setOperator('+')">+</button>
+            
+            <!-- Row 5: 0, Decimal, Equals (equals spans 2 columns) -->
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="appendNumber('.')">.</button>
+            <button class="equals" onclick="calculate()">=</button>
+        </div>
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- ALL JAVASCRIPT CODE GOES HERE               -->
+    <!-- ============================================ -->
+    
+    <script>
+        // ============================================
+        // VARIABLES (stores data)
+        // ============================================
+        
+        let currentNumber = '';     // The number being typed now (e.g., "123")
+        let previousNumber = '';    // The number before operator (e.g., "456")
+        let operation = null;       // Which operator clicked (+, -, ×, ÷)
+        let shouldResetScreen = false; // Should we clear screen after calculation?
+        
+        // Get references to HTML elements
+        const displayElement = document.getElementById('display');
+        const expressionElement = document.getElementById('expression');
+        
+        // ============================================
+        // FUNCTION: appendNumber()
+        // Adds a number or decimal to the display
+        // ============================================
+        function appendNumber(number) {
+            // If shouldResetScreen is true, clear before typing new number
+            if (shouldResetScreen) {
+                clearDisplay();
+                shouldResetScreen = false;
+            }
+            
+            // Prevent multiple decimals (like "5.5.5")
+            if (number === '.' && currentNumber.includes('.')) {
+                return; // Stop if already has decimal
+            }
+            
+            // Add the number to currentNumber
+            currentNumber += number;
+            
+            // Update the display
+            displayElement.value = currentNumber;
+        }
+        
+        // ============================================
+        // FUNCTION: setOperator()
+        // Sets the operation when user clicks +, -, ×, ÷
+        // ============================================
+        function setOperator(op) {
+            // If there's already a number, calculate first
+            if (currentNumber === '') return;
+            
+            // If there's a previous number, calculate pending operation
+            if (previousNumber !== '') {
+                calculate();
+            }
+            
+            // Store the operator
+            operation = op;
+            
+            // Move current number to previous
+            previousNumber = currentNumber;
+            
+            // Clear current number for next input
+            currentNumber = '';
+            
+            // Show expression on top
+            updateExpression();
+        }
+        
+        // ============================================
+        // FUNCTION: calculate()
+        // Performs the actual math calculation
+        // ============================================
+        function calculate() {
+            // Variables to store numbers
+            let result;
+            
+            // Convert strings to numbers
+            const prev = parseFloat(previousNumber);
+            const current = parseFloat(currentNumber);
+            
+            // If either number is invalid, stop
+            if (isNaN(prev) || isNaN(current)) return;
+            
+            // Perform calculation based on operator
+            switch (operation) {
+                case '+':
+                    result = prev + current;
+                    break;
+                case '-':
+                    result = prev - current;
+                    break;
+                case '×':
+                    result = prev * current;
+                    break;
+                case '÷':
+                    // Handle division by zero
+                    if (current === 0) {
+                        alert("Cannot divide by zero!");
+                        clearDisplay();
+                        return;
+                    }
+                    result = prev / current;
+                    break;
+                default:
+                    return;
+            }
+            
+            // Round to avoid long decimals (e.g., 1/3 = 0.333333)
+            result = Math.round(result * 1000000) / 1000000;
+            
+            // Display the result
+            currentNumber = result.toString();
+            displayElement.value = currentNumber;
+            
+            // Clear previous and operation
+            previousNumber = '';
+            operation = null;
+            
+            // Next number typed will replace result
+            shouldResetScreen = true;
+            
+            // Clear expression
+            expressionElement.textContent = '';
+        }
+        
+        // ============================================
+        // FUNCTION: clearDisplay()
+        // Resets everything (clears all data)
+        // ============================================
+        function clearDisplay() {
+            currentNumber = '';
+            previousNumber = '';
+            operation = null;
+            displayElement.value = '0';
+            expressionElement.textContent = '';
+        }
+        
+        // ============================================
+        // FUNCTION: deleteLast()
+        // Removes the last digit typed
+        // ============================================
+        function deleteLast() {
+            // Remove last character
+            currentNumber = currentNumber.slice(0, -1);
+            
+            // If empty, show 0
+            if (currentNumber === '') {
+                displayElement.value = '0';
+            } else {
+                displayElement.value = currentNumber;
+            }
+        }
+        
+        // ============================================
+        // FUNCTION: updateExpression()
+        // Shows the calculation on top (e.g., "5 + 3")
+        // ============================================
+        function updateExpression() {
+            if (previousNumber && operation) {
+                expressionElement.textContent = `${previousNumber} ${operation}`;
+            } else {
+                expressionElement.textContent = '';
+            }
+        }
+        
+        // ============================================
+        // KEYBOARD SUPPORT (Bonus feature!)
+        // Allows typing with keyboard
+        // ============================================
+        document.addEventListener('keydown', function(event) {
+            // Get the key pressed
+            const key = event.key;
+            
+            // Numbers 0-9
+            if (/[0-9]/.test(key)) {
+                appendNumber(key);
+            }
+            // Decimal point
+            else if (key === '.') {
+                appendNumber('.');
+            }
+            // Operators
+            else if (key === '+') {
+                setOperator('+');
+            }
+            else if (key === '-') {
+                setOperator('-');
+            }
+            else if (key === '*') {
+                setOperator('×');
+            }
+            else if (key === '/') {
+                event.preventDefault(); // Prevent browser search
+                setOperator('÷');
+            }
+            // Enter key for equals
+            else if (key === 'Enter' || key === '=') {
+                calculate();
+            }
+            // Escape key for clear
+            else if (key === 'Escape') {
+                clearDisplay();
+            }
+            // Backspace for delete
+            else if (key === 'Backspace') {
+                deleteLast();
+            }
+        });
+    </script>
+</body>
+
+</html>
