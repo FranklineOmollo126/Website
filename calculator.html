@@ -16,10 +16,9 @@
     <!-- Text that appears on browser tab -->
     
     <style>
-        /* ============================================ */
-        /* ALL CSS STYLES GO HERE                      */
-        /* ============================================ */
-        
+       
+        /*CSS STYLES*/
+               
         /* Resets default margins/padding for ALL elements */
         * {
             margin: 0;
@@ -253,9 +252,11 @@
 </head>
 
 <body>
-    <!-- ============================================ -->
-    <!-- ALL HTML CONTENT GOES HERE                   -->
-    <!-- ============================================ -->
+    
+    
+    <!--HTML CONTENT  -->
+
+    
     
     <div class="calculator">
         <!-- Display Section -->
@@ -300,14 +301,14 @@
         </div>
     </div>
     
-    <!-- ============================================ -->
-    <!-- ALL JAVASCRIPT CODE GOES HERE               -->
-    <!-- ============================================ -->
+    
+    <!-- JAVASCRIPT -->
+   
     
     <script>
-        // ============================================
+     
         // VARIABLES (stores data)
-        // ============================================
+     
         
         let currentNumber = '';     // The number being typed now (e.g., "123")
         let previousNumber = '';    // The number before operator (e.g., "456")
@@ -318,10 +319,10 @@
         const displayElement = document.getElementById('display');
         const expressionElement = document.getElementById('expression');
         
-        // ============================================
+       
         // FUNCTION: appendNumber()
         // Adds a number or decimal to the display
-        // ============================================
+       
         function appendNumber(number) {
             // If shouldResetScreen is true, clear before typing new number
             if (shouldResetScreen) {
@@ -341,10 +342,8 @@
             displayElement.value = currentNumber;
         }
         
-        // ============================================
         // FUNCTION: setOperator()
         // Sets the operation when user clicks +, -, ×, ÷
-        // ============================================
         function setOperator(op) {
             // If there's already a number, calculate first
             if (currentNumber === '') return;
@@ -367,10 +366,8 @@
             updateExpression();
         }
         
-        // ============================================
         // FUNCTION: calculate()
         // Performs the actual math calculation
-        // ============================================
         function calculate() {
             // Variables to store numbers
             let result;
@@ -424,10 +421,8 @@
             expressionElement.textContent = '';
         }
         
-        // ============================================
         // FUNCTION: clearDisplay()
         // Resets everything (clears all data)
-        // ============================================
         function clearDisplay() {
             currentNumber = '';
             previousNumber = '';
@@ -436,10 +431,8 @@
             expressionElement.textContent = '';
         }
         
-        // ============================================
         // FUNCTION: deleteLast()
         // Removes the last digit typed
-        // ============================================
         function deleteLast() {
             // Remove last character
             currentNumber = currentNumber.slice(0, -1);
@@ -452,10 +445,8 @@
             }
         }
         
-        // ============================================
         // FUNCTION: updateExpression()
         // Shows the calculation on top (e.g., "5 + 3")
-        // ============================================
         function updateExpression() {
             if (previousNumber && operation) {
                 expressionElement.textContent = `${previousNumber} ${operation}`;
@@ -464,10 +455,8 @@
             }
         }
         
-        // ============================================
         // KEYBOARD SUPPORT (Bonus feature!)
         // Allows typing with keyboard
-        // ============================================
         document.addEventListener('keydown', function(event) {
             // Get the key pressed
             const key = event.key;
